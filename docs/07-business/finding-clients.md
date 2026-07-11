@@ -1,7 +1,8 @@
 # How to Land AI Workflow Clients (Without Posting Content)
 
-This guide covers three proven methods for landing AI automation clients without creating
-content, plus a four-step framework to put it all into action.
+This guide covers a warm-network starter sprint, three proven methods for landing AI
+automation clients without creating content, plus a four-step framework to put it
+all into action.
 
 ## The Truth About Content vs. Other Channels
 
@@ -14,6 +15,43 @@ to work with — came from two things: referrals and partnerships.
 
 You don't need a YouTube channel, a LinkedIn presence, or 12 months of patience. The three
 methods below work without posting a single piece of content.
+
+## Before cold outreach: a 7-day warm-network sprint
+
+If you have zero clients and zero audience, don't start with cold outreach —
+start warm. Warm contacts convert far better than cold ones because trust already
+exists, even if it's borrowed (a friend of a friend). Cold outreach is what you
+graduate to once you have proof; it's not where day one starts. This is a one-week,
+repeatable loop:
+
+- **Day 1 — set a loose direction and build a trust map.** Don't lock into a
+  hyper-specific niche yet ("I help small businesses automate repetitive tasks
+  with AI" is enough to start conversations). In parallel, list 20 people you
+  already have trust with — friends/family who run businesses, past coworkers,
+  community contacts, second-degree connections — noting their industry and
+  whether they're a potential client, an intro, or just insight.
+- **Days 2-3 — have 5-10 warm, low-pressure conversations.** Not sales calls —
+  you're trying to understand where repetitive work eats their time. *"I'm trying
+  to start a business helping companies automate repetitive work with AI. Not
+  selling anything — can I ask a few questions about what feels manual or annoying
+  in your day-to-day?"* Write down the pain points and, importantly, their exact
+  words — that language is what you'll use later in pitches.
+- **Days 4-5 — propose a free pilot for the clearest pain point.** Pick the person
+  with the most painful, most repetitive task from your conversations and offer to
+  build a small, low-risk automation for free in exchange for honest feedback.
+- **Days 5-6 — build the smallest version that proves the point.** Simplicity over
+  impressiveness — the goal is "I saved you time," not "look at this architecture."
+- **Day 7 — convert to maintenance, expansion, or proof.** If the pilot landed,
+  offer two low-pressure paths: **maintenance** (you keep it running, handle
+  breakage, small tweaks) or **expansion** (build on what's working with 1-2
+  concrete additions). If they're happy but not ready to continue, ask for a short
+  video testimonial instead of pushing more work — only after that, ask if they
+  know anyone else who might benefit. If the pilot *didn't* land, don't try to
+  sell anything — take the feedback and re-run the loop.
+
+This isn't a one-time exercise — run the loop multiple times. Each pass gives you
+sharper positioning, better language, and real proof, which is exactly what makes
+cold outreach (Method 1 below) actually work once you do reach for it.
 
 ## Method 1: Cold Outreach
 
