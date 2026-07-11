@@ -1,0 +1,29 @@
+# Secrets — never commit real keys
+.env
+.env.local
+*.key
+*.pem
+
+# Claude Code local state
+.claude/settings.local.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Raw source transcripts — working material, not published content
+10hours.md
+4hours
+6hours.md

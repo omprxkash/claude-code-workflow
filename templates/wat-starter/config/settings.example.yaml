@@ -1,0 +1,26 @@
+# Example config for a WAT project.
+# Copy to settings.yaml and adjust. Keep secrets in .env, NOT here.
+
+project:
+  name: my-wat-project
+  default_depth: quick   # quick | deep
+
+output:
+  format: markdown       # markdown | html
+  include_sources: true
+
+# Example: branding for output that needs to look on-brand.
+brand:
+  logo_path: brand_assets/logo.png
+  guidelines_path: brand_assets/brand-guidelines.pdf
+  colors:
+    primary: "#000000"
+    accent: "#3b82f6"
+  fonts:
+    heading: Inter
+    body: Inter
+
+# Example: recipients for a send step (emails are fine here; keys are NOT).
+recipients:
+  - name: Example Person
+    email: person@example.com

@@ -1,0 +1,16 @@
+{
+  "_comment": "Merge the 'hooks' block into your .claude/settings.json. This runs format-on-edit.sh after Claude writes or edits a file. Adjust the command path and matcher to your setup. Schema can change across Claude Code versions — check the docs if a hook doesn't fire.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/format-on-edit.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
