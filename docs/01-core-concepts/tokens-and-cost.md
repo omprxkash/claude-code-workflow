@@ -65,6 +65,12 @@ switching *models* (Haiku → Sonnet → Opus) is the lever that matters most fo
 quality and cost — effort tuning is a second-order knob worth learning once the
 model-choice fundamentals are second nature, not before.
 
+There's also a one-word trigger, **`ultrathink`**, that allocates a large extended-thinking
+budget (tens of thousands of tokens) before Claude responds — reach for it on hard
+architecture calls, gnarly debugging, or big refactors, or when a couple of normal
+prompts haven't gotten you the right output. It costs meaningfully more tokens than
+a normal response, so it's a tool for genuinely hard problems, not a default.
+
 ## Keeping usage efficient
 
 The tactical playbook — `/clear`, `/compact`, delegating to
