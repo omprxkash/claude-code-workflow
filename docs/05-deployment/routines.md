@@ -226,6 +226,7 @@ Rules of thumb:
 - Don't make the agent read every memory file every run — only what it needs
 - Keep strategy.md and trade-log.md trim; archive old entries to a separate file
 - The `hot.md` pattern (a short 500-word recent-state cache) saves the agent from reading multiple files just to get current context
+- **Overwrite `hot.md`, don't append to it.** Each run should replace its contents with the current status (last run time, what happened, known issues) rather than adding a new entry on top of the old ones. An append-only log across hundreds of runs becomes an ever-growing file every future run has to read through — overwriting keeps the read cost constant no matter how many runs have happened. If you need historical runs for debugging, write those to a separate log file the agent doesn't read by default.
 
 ---
 
