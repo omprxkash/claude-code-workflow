@@ -1,6 +1,6 @@
 # Automation skills
 
-Business-automation skills built on the [WAT framework](../../../docs/06-workflows/wat-framework.md). Each is a `SKILL.md` Claude Code loads when the task matches — install by copying the folder into `.claude/skills/` in your project, or `~/.claude/skills/` to have it everywhere.
+Business-automation skills built on the [WAT framework](../../docs/06-workflows/wat-framework.md). Each is a `SKILL.md` Claude Code loads when the task matches — install by copying the folder into `.claude/skills/` in your project, or `~/.claude/skills/` to have it everywhere.
 
 For general-purpose skills (diagrams, design, session tools, meta-skills), see the [parent `skills/` folder](../).
 

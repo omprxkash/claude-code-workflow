@@ -35,6 +35,11 @@ MUST_LISTEN.md  curated videos — the ones actually worth your time
 **Automation skills** (lead gen, cold email, Gmail, YouTube, research, and more):
 → [`skills/automation/`](skills/automation/) — 27 skills, grouped by category
 
+**Image generation** (need a `kie.ai` API key — cost per image, see each skill's setup):
+[`skills/excalidraw-visuals/`](skills/excalidraw-visuals/) (hand-drawn-style PNGs) and
+[`skills/nano-banana-images/`](skills/nano-banana-images/) (hyper-realistic photos).
+Full catalog with descriptions and costs: [`skills/README.md`](skills/README.md).
+
 ### Templates — copy a file, adapt it, use it
 
 | What you need | Where |

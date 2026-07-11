@@ -19,7 +19,7 @@ the system prompt for this project. Put the things that don't change: how the
 folders are laid out, where files live, what the project is for, which frameworks
 you're using, conventions to follow.
 
-You can start with the [template CLAUDE.md](../../templates/CLAUDE.md) and adapt it.
+You can start with the [generic template CLAUDE.md](../../templates/claude-md/generic.md) and adapt it.
 The full reasoning for why this file matters so much is in
 [What CLAUDE.md is](../01-core-concepts/claude-md.md) — for now just know that a
 good one steers everything that follows.

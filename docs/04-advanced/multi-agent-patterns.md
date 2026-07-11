@@ -127,7 +127,7 @@ Session 1: [build the thing]
 Session 2: "Here is what was built. Review it. You are a fresh set of eyes — you have no context about how or why it was built, only what's in front of you. Point out everything that looks wrong, incomplete, or fragile."
 ```
 
-**For UI work:** Playwright-based visual verification. Have Claude Code open a browser, navigate to the built UI, take screenshots, and compare to the spec. See [four-upgrades.md](../06-workflows/four-upgrades.md#2-verification-loops).
+**For UI work:** Playwright-based visual verification. Have Claude Code open a browser, navigate to the built UI, take screenshots, and compare to the spec. See [four-upgrades.md](../06-workflows/four-upgrades.md#upgrade-2--make-it-verify-its-own-work).
 
 **Framing that works:**
 ```

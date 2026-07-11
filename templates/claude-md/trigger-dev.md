@@ -140,7 +140,10 @@ triggerAndWait, batch triggers, debounce, schema tasks with Zod validation.
 1. Copy the markdown block above into `CLAUDE.md` in your Trigger.dev project root.
 2. Fill in anything project-specific (your project name, services, specific APIs).
 3. Claude Code reads it automatically every session — no need to re-explain the workflow.
-4. Add a companion `trigger-dev-api-ref.md` (see [trigger-dev-api-ref.md](trigger-dev-api-ref.md)) for the full code reference.
+4. Add your own companion `trigger-dev-api-ref.md` file in the project (referenced by
+   the template above) with the full code reference — task patterns, schedules,
+   waits, `triggerAndWait`, batch triggers, debounce, schema tasks with Zod
+   validation. This repo doesn't ship one; write it once for your project and reuse it.
 
 ## MCP config
 
