@@ -21,6 +21,28 @@ agent — but it's all readable. Workflows are natural-language process instruct
 **Tools** — the individual capabilities a workflow calls. One tool per job: research,
 send an email, generate an infographic, write to a sheet.
 
+## Pick the simplest layer before you reach for WAT
+
+Not every automation needs a full agent. Think of it as a pyramid, simplest at the
+bottom:
+
+1. **Chatbot / static template** — deterministic, same output every time. Fine when
+   the process genuinely never varies.
+2. **Rules-based workflow** — if/then routing, no generation. "If contact exists in
+   Google Contacts, do nothing; if not, extract and add them." Fully predictable.
+3. **Generative step** — AI writes the actual content (an email, a summary) inside
+   an otherwise deterministic flow, instead of filling a static template.
+4. **Full agent** — open-ended reasoning, decides its own steps.
+
+Each level up buys more flexibility and costs more predictability — the higher the
+autonomy, the harder it is to fully trust the output without a
+[verification loop](../04-advanced/multi-agent-patterns.md#5-sub-agent-verification).
+**Build the simplest layer that actually solves the problem.** An inbox-routing
+task that looks like it needs a full agent often turns out to just need rules-based
+workflow with one generative step for the email text — much simpler to reason about
+and much cheaper to run. Reach for the full WAT/agent structure below once you've
+confirmed the task genuinely needs open-ended reasoning, not before.
+
 ## The recipe analogy
 
 Think of a workflow as a recipe. Let's use baking a chocolate cake.

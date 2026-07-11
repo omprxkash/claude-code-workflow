@@ -165,6 +165,56 @@ Common issue: API key variable names in the prompt must match exactly what you n
 
 ---
 
+## What remote routines can and can't touch
+
+A remote routine is fully stateless: each run clones your GitHub repo fresh, runs,
+and the clone is destroyed afterward (unless the run itself pushes a commit or
+branch — that persists, along with the run's session history in your dashboard).
+Consequences:
+
+- **No local file access, no local secrets, no local cookies/session state.**
+  Anything the run needs must live in the GitHub repo or be provided as an
+  environment variable — an `.env`-based automation that works locally can fail
+  remotely for exactly this reason. If a workflow depends on a logged-in browser
+  session (cookies from prior runs), it generally won't work as a remote routine —
+  it needs a token/header-based auth method instead.
+- **API keys go in the routine's cloud environment settings** (name the environment,
+  add key-value env vars there), not in a repo `.env` — the repo's `.env` is
+  git-ignored, so it never reaches the clone. Reference keys in your prompt as
+  environment variables explicitly if the agent doesn't find them on its own
+  (e.g. *"my API key is available as an environment variable — use it directly,
+  don't look for a `.env` file"*).
+- **Network access has levels:** *Trusted* (default) only allows outbound requests
+  to Anthropic-vetted domains (version control hosts, major cloud platforms, etc.).
+  *Full* allows any outbound request — required if a routine needs to reach a
+  service outside that vetted list (e.g. certain third-party APIs), but it also
+  means that if Claude reads malicious content mid-run, it could theoretically be
+  tricked into exfiltrating data to an external server; *Trusted* blocks that class
+  of risk. For a private repo where you control all the inputs, the practical risk
+  on *Full* is low, but know which setting you're on. *Custom* lets you allow
+  specific domains beyond the vetted list without going all the way to *Full*.
+- **Setup scripts** run once when the remote session spins up, before Claude Code
+  launches — use one if a run needs packages installed first.
+- **Resource limits per run:** 4 vCPUs, 16GB RAM, 30GB disk. Don't point a routine
+  at a massive multi-purpose repo (like a full AIOS project) if the automation only
+  needs a handful of files from it — consider a dedicated smaller repo per routine
+  instead, both for resource reasons and because the full repo's `CLAUDE.md` and
+  context load in on every run, which counts against your usage the same as an
+  interactive session would.
+
+## Daily run limits (by plan)
+
+| Plan | Routine runs / day |
+|---|---|
+| Pro | ~5 |
+| Max | ~15 |
+| Team / Enterprise | ~25 (metered overage available for orgs that enable it) |
+
+Minimum schedule interval is **1 hour** regardless of plan — for anything tighter
+than that, use `/loop` or a local scheduled task instead (see the comparison table
+above). Check current numbers before relying on them; like other plan limits, these
+move.
+
 ## Context budget
 
 Treat tokens per run like a budget. Each routine run has a limited context window. What eats tokens:

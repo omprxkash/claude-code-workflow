@@ -54,6 +54,26 @@ The second brain maintains itself: periodic lint passes catch inconsistencies, m
 
 No — they're suited to different scales. See the comparison table in [llm-wiki.md](llm-wiki.md#llm-wiki-vs-semantic-search--rag): a markdown wiki is cheaper and gives better relationship reasoning up to a few hundred pages; past that, into the millions-of-documents range, a traditional RAG pipeline scales where a graph of markdown files doesn't.
 
+## What actually belongs in it: context vs. connections
+
+Not everything you *could* feed a second brain *should* go in. Two different kinds
+of data:
+
+- **Context** — evergreen, locked-in information: decisions made, project status,
+  how the business works. Stuff that's still going to be useful a year from now.
+  This is worth ingesting directly.
+- **Connections** — real-time, high-churn data: Slack threads, individual emails,
+  raw customer conversations. This goes stale fast and just becomes noise if you
+  ingest it wholesale — you'd be back every month deleting old entries.
+
+The fix isn't to ingest connections — it's to give the second brain a **path** to
+them. Point it at where the live data lives (a project management tool, an inbox)
+so it can go pull the real-time answer on demand, without permanently absorbing
+everything that ever passed through those systems. A well-routed second brain
+handles a vague question by cascading: check its own evergreen files first, then
+the wiki, then reach out to the live connection only if it still can't find the
+answer.
+
 ## Picking your level
 
 1. Do you currently lose things or have to re-explain context to Claude? If no — stay at level 1, you don't have the pain this solves.
