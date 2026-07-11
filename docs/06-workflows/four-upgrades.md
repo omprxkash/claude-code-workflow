@@ -67,6 +67,15 @@ Only stop when all of that is true.
 
 The model runs Playwright, takes screenshots, looks at them, and loops until it passes — not until it decides it probably passes.
 
+**Bake the check into the to-do list itself, not just the prompt.** Claude builds
+its plan as a to-do list and works through it item by item. If "verify" is only a
+sentence in your original prompt, it can get lost by the time the last item is
+checked off. Make verification its own explicit to-do item — "build the form,"
+then "screenshot the form and confirm it renders correctly," then "open Chrome
+DevTools and confirm no console errors" as separate, checkable steps — so
+verification is a tracked part of the plan Claude is visibly working through, not
+an afterthought it might skip under time pressure.
+
 ### Part B — Stress test after the build
 
 ```
