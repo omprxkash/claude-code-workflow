@@ -73,6 +73,38 @@ Spin up an agent team for this feature:
 
 tmux splits into color-coded panes and you can watch the three agents work simultaneously and message each other. The QA agent filing a bug directly to the backend agent — without round-tripping through you — is the thing sub agents can't do.
 
+### The prompting pattern that gets good results
+
+State the overall goal *first*, before listing the agents — teammates wake up with
+zero history, so if the shared goal only lives in your head, each agent only
+knows its own slice and not *why* it matters or why its teammates exist. Then list
+each agent with its role, and — critically — **name who it should message and
+when** ("when done, message the frontend dev"; "wait for the backend dev's message,
+then send everything to QA"). Don't assume an agent will figure out who to talk to.
+Finally, state what final deliverables you want back, since the main session is
+the one that has to reconcile everyone's output into something usable.
+
+```
+Goal: build a working full-stack app with a REST API and a React frontend.
+End result: a running app I can view on localhost, with users and posts working,
+plus a QA report confirming everything passes.
+
+Create a team of 3 using Sonnet:
+- Backend dev: build the REST API for users and posts. When done, message the frontend dev.
+- Frontend dev: build the React UI against that API. Wait for the backend dev's message before starting integration.
+- QA: once both are done, test the full app and report pass/fail for each feature.
+
+Deliverables: the running app, a pass/fail test report, and a short doc covering what was built and key decisions.
+```
+
+### Do / don't checklist
+
+- Do have each agent own specific files — don't let two agents edit the same file (overwrites).
+- Do define the output explicitly — don't leave deliverables vague.
+- Do name recipients for every handoff — don't assume an agent knows who to message.
+- Do keep it to 3-5 teammates — don't run 10+, the cost multiplies with headcount.
+- Do give full context in the initial prompt — teammates get no history beyond what you feed them, even though they can still read every file in the project.
+
 ## What teammates inherit when they spawn
 
 A teammate wakes up with no conversation context, but it isn't starting from zero
