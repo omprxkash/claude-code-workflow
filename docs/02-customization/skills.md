@@ -105,6 +105,34 @@ Two kinds of skills age very differently:
   locations, your API quirks) stay durable — no model update can know that your
   drafts go in `/drafts` or that your infographics need the logo top-left.
 
+The reason this distinction matters practically: it's exactly what tells you when to
+retire a skill vs. keep investing in it. Run an eval periodically (see below) —
+if a capability-uplift skill stops showing measurable uplift after a model update,
+archive it. Encoded-preference skills won't hit that wall on their own.
+
+## Evaluating a skill (the `skill-creator` plugin)
+
+Anthropic ships an official `skill-creator` plugin (`/plugins` → search
+"skill-creator") that does more than scaffold new skills — it can systematically
+evaluate existing ones:
+
+- **Benchmarking** — run the skill with and without being loaded, side by side, and
+  compare pass rate, time, and token usage. This is how you get an actual number for
+  "does this skill help" instead of a gut feeling.
+- **Regression detection** — as base models change, a skill that used to help can
+  start hurting (the model now "thinks" differently and the old instructions fight
+  it). Periodic evals catch this before you notice quality silently dropping.
+- **Spotting when a skill is no longer needed** — the flip side of regression: if an
+  eval shows the model now performs *as well without* a capability-uplift skill,
+  that's your signal to archive it and stop paying its context cost.
+- **Trigger tuning** — if a skill fires too often, too rarely, or gets confused with
+  another skill, the plugin can test various phrasings against the skill's
+  `description` and rewrite it for more accurate auto-invocation, without you having
+  to manually guess at wording.
+
+Worth running whenever you have several skills in one project and start noticing
+misfires, or after a significant model upgrade.
+
 When deciding what to build, bias toward encoding *your* preferences and
 procedures, not general quality boosts.
 
