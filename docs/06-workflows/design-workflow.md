@@ -40,6 +40,18 @@ component conventions, brand rules. Then every build starts already on-brand wit
 you re-explaining. This is how you get consistency across many pages or a whole
 product, and it's the approach that scales best once you've settled your style.
 
+## 4. The voice-dump approach
+
+For a build with no pre-existing reference design, talk instead of typing. Use a
+dictation tool and just describe the site out loud — what sections it needs, what
+it should say, the vibe you're going for. People talk at roughly 200 words/minute
+versus 50-70 typed, so a few minutes of talking produces far more usable detail
+than the equivalent typing time, and the model is good at extracting structure and
+intent from a rough, unstructured transcript. This won't one-shot a finished site
+the way a reference design does — expect more back-and-forth after the first pass —
+but it gets you from a blank folder to a real first draft much faster than typing
+out the same brief.
+
 ## Which to use
 
 | Goal | Approach |
@@ -47,6 +59,7 @@ product, and it's the approach that scales best once you've settled your style.
 | Match a specific design closely | **Screenshot-compare loop** |
 | Consistently good design, no fixed target | **Design skill** |
 | On-brand consistency across many pages | **Spec in CLAUDE.md** |
+| No reference design, just a mental picture | **Voice dump**, then iterate |
 
 These combine well: a `CLAUDE.md` design system *plus* a design skill *plus* a
 screenshot pass for the one hero section that has to be perfect.
@@ -64,8 +77,9 @@ logo and brand guidelines driving every visual.
 When you want Claude to clone a specific site's aesthetic:
 
 1. Open the site → F12 → **Console** → Ctrl+Shift+P → search "screenshot" → "Capture full size screenshot". Saves the whole page, not just the viewport.
-2. In the Elements tab, select the root element and copy the computed styles — this gives Claude the color tokens, font stack, spacing scale, and layout rules.
-3. Give Claude both the screenshot and the CSS dump: *"Clone this design — here's the screenshot and here are the styles."* It reproduces the look without stealing layout or content.
+2. **Resize it before feeding it in.** A full-page screenshot is often 15-20MB+ — that eats tokens and can hit upload limits. Run it through a free image resizer (50-75% scale) until it's under ~4-5MB. Slightly blurrier is fine; Claude doesn't need pixel-perfect source, it needs the layout and color info.
+3. In the Elements tab, select the root element and copy the computed styles — this gives Claude the color tokens, font stack, spacing scale, and layout rules.
+4. Give Claude both the (resized) screenshot and the CSS dump: *"Clone this design — here's the screenshot and here are the styles."* It reproduces the look without stealing layout or content.
 
 ## Component inspiration (21st.dev)
 

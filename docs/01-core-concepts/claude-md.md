@@ -76,6 +76,15 @@ Global rules should be high-signal, universal truths: "always look up API docume
 
 Don't put local knowledge in global and vice versa. A rule about your Stripe integration doesn't belong in the file that loads for every project.
 
+## Put hard constraints at the top
+
+Attention isn't uniform across a long prompt — content at the beginning and end
+gets weighted more than the middle (see
+[context management](context-management.md#context-rot) on "lost in the middle").
+Put anything you genuinely never want violated — "never delete X," "never push
+directly to main" — in the first few lines of `CLAUDE.md`, not buried after
+general project description. The order you write things in isn't neutral.
+
 ## Real examples
 
 See [`templates/system-prompts/`](../../templates/system-prompts/) for real, working examples:
