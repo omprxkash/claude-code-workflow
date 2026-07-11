@@ -73,6 +73,55 @@ Spin up an agent team for this feature:
 
 tmux splits into color-coded panes and you can watch the three agents work simultaneously and message each other. The QA agent filing a bug directly to the backend agent — without round-tripping through you — is the thing sub agents can't do.
 
+## What teammates inherit when they spawn
+
+A teammate wakes up with no conversation context, but it isn't starting from zero
+on everything — it **inherits the main session's permissions** (bypass mode, allowed
+bash commands, etc. all carry over automatically), and it has access to the same
+files, MCP servers, and skills as the main session without you wiring anything up
+per-agent.
+
+## Plan approval mode
+
+Just as you'd start a solo session in [plan mode](../01-core-concepts/permission-modes.md)
+for anything non-trivial, you can require every teammate to draft a plan and get it
+approved before executing — either by the main/lead agent, or by you directly, or
+by designating one teammate as the plan reviewer for the others. This catches a
+teammate heading down the wrong path before it burns tokens building on a bad plan.
+
+## Three rules for teams that actually work
+
+1. **Give each agent its own territory.** Assign distinct files/deliverables per
+   agent. Two agents editing the same file is how work gets silently overwritten.
+2. **Let them message each other directly** rather than only reporting to the main
+   session — that's the entire point of a team over sub-agents.
+3. **They should genuinely be working in parallel**, not handing off one-to-the-next
+   in sequence. If the process is naturally 1→2→3 with each step depending on the
+   last, that's not a team — it's sub-agents or an assembly line.
+
+## Common pitfalls
+
+| Symptom | Fix |
+|---|---|
+| Agents keep stopping to ask permission | Pre-approve the relevant commands in project/local settings so they don't interrupt every few seconds |
+| Output feels disjointed, work got overwritten | Assign explicit file owners — each agent should only edit its own files |
+| One agent is idle or barely contributing | Explicitly assign it work or a dependency in the initial plan/prompt |
+| Burning too many tokens | Use fewer agents — team cost scales roughly linearly with team size |
+| Agents seem to be losing work between steps | Tell them to write state to a temporary file they can reload rather than holding it only in context |
+| Approvals feel off / untrustworthy | Have *you* approve plans directly until you've built confidence in how the team behaves |
+
+**Team size:** keep it small — 2 to 5 agents is a reasonable ceiling. Cost scales
+with headcount (see below), so an 8-agent team isn't automatically better than a
+focused 3-agent one.
+
+## Graceful shutdown
+
+When you end a team, agents get a shutdown request rather than being force-killed —
+a teammate mid-task can respond "not done yet, let me save state first" before
+confirming it's safe to stop. This matters because a force-kill can leave partial,
+uncommitted work; a clean shutdown means each agent finishes and saves before the
+team closes.
+
 ## Cost reality
 
 Agent teams are expensive. Each agent in the team maintains its own full context window — roughly 7x more tokens than a single session for the same work.
@@ -87,6 +136,16 @@ This isn't a reason to avoid teams — it's a reason to use them deliberately. R
 Don't run a team when sub-agents or sequential sessions would get to the same result.
 
 ## Choosing
+
+Lean toward a team when several of these are true: the work has genuinely distinct
+specialty areas, it needs to happen in parallel, the roles need to react and assign
+work to each other as they go, and the quality bar justifies the extra cost.
+
+Lean toward sub agents (or skip teams entirely) when: the process is naturally
+sequential, everything fits in one context window/conversation anyway, the agents
+would just be working on the same files, the task is simple, or you want to keep
+token cost down. A sequential 1→2→3 process is a sub-agent/assembly-line job, not a
+team job, even if it "feels" like it needs multiple roles.
 
 - Need many hands on *separate* tasks → sub agents (or [worktrees](../04-advanced/worktrees.md) for full session isolation).
 - Need roles that *react to each other* while working → agent team.
