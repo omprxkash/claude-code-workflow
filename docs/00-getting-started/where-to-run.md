@@ -6,7 +6,7 @@ they're all the same engine wrapped in different interfaces — every surface be
 calls the exact same Claude Code core. So pick based on how you like to work, not
 on which one is "real."
 
-There are five surfaces worth knowing.
+There are six surfaces worth knowing.
 
 ## 1. Terminal (the foundation)
 
@@ -75,6 +75,28 @@ more in [deployment](../05-deployment/deploy.md).
 - **Cons:** not where you'll do deep local file work.
 - **Who it's for:** people who want mobility and remote sessions.
 
+## 6. A VPS (your own always-on server)
+
+Instead of Anthropic's cloud running your session (surface 5) or your own laptop
+(surfaces 1-4), Claude Code runs on a virtual private server you rent and control —
+persistent, always powered on, and living right next to whatever infrastructure it
+needs to touch (databases, Docker containers, other running services). A budget VPS
+provider is enough; install Claude Code the same way you would on any Linux machine,
+over SSH.
+
+- **Pros:** truly always-on — closing your laptop doesn't stop anything; direct
+  access to infrastructure you'd otherwise have to expose over the network; you can
+  bridge it to a chat app (e.g. a Telegram bot) for phone access, or SSH in from
+  your terminal, VS Code, or the desktop app whenever you want to check in.
+- **Cons:** requires basic server admin knowledge (or asking Claude to help you set
+  the server up in the first place); more setup friction than any other surface;
+  because it has real access to a real server, permissions matter more here than
+  anywhere else — don't give it more reach than the task needs (see
+  [permission modes](../01-core-concepts/permission-modes.md)).
+- **Who it's for:** people running servers or 24/7 automations who want an
+  always-on agent sitting next to that infrastructure, not people looking for a
+  daily-driver coding surface.
+
 ## How to choose
 
 | If you… | Use |
@@ -84,6 +106,7 @@ more in [deployment](../05-deployment/deploy.md).
 | Want files + diffs beside the chat (good default) | **VS Code** |
 | Want that, but a more modern shell | **Antigravity** |
 | Want mobility / remote sessions | **Web** |
+| Want a persistent agent next to your own infrastructure, 24/7 | **VPS** |
 
 My own setup: I do most work in an IDE (files visible) with a terminal open inside
 it for the moments I need raw control. You can mix freely — it's one engine.
