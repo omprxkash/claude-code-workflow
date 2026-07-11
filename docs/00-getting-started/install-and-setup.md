@@ -49,6 +49,19 @@ assumes.
 Once you're authenticated you're done. Type `claude` in any project folder and you
 have an agent that can read and edit the files in that folder.
 
+## Data and training
+
+Whether Anthropic can train on your conversations is a **toggle you control**, not
+a fixed policy — check Settings → Privacy → "Help improve Claude." This has been a
+forced choice (you must pick on or off) since a policy change in late 2026, and
+consumer plans (Free/Pro/Max) and Team/Enterprise plans can default differently, so
+don't assume — check it yourself, especially before using Claude Code on anything
+you wouldn't want to leave your machine. Turning training off doesn't mean Anthropic
+doesn't retain the data at all (see their current privacy policy for retention
+specifics) — it only controls the training use. If you or your org handle sensitive
+client data, contracts, or PII, verify what your organization's policy actually
+permits before feeding documents into any cloud-hosted model, Claude included.
+
 ## A mental model before you go further
 
 Claude Code is running **locally on your machine**, inside whatever folder you

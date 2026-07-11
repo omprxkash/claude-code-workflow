@@ -97,6 +97,8 @@ Not ready to pay? → [Running Claude Code for free](docs/00-getting-started/fre
 - [Multi-agent patterns](docs/04-advanced/multi-agent-patterns.md) — assembly line, consensus, debate, verification
 - [agent-browser](docs/04-advanced/agent-browser.md) — browser automation CLI built for AI agents; deterministic element refs
 - [Understand Anything](docs/04-advanced/understand-anything.md) — turn any codebase into a knowledge graph before building
+- [LLM wiki](docs/04-advanced/llm-wiki.md) — build a second brain: cross-linked Obsidian wiki ingested from transcripts, PDFs, URLs
+- [The 5 levels of a second brain](docs/04-advanced/second-brain-levels.md) — from exact-word CLAUDE.md routing to a fully autonomous knowledge graph
 - [Plugins & marketplaces](docs/04-advanced/plugins.md)
 - [Headless mode & Agent SDK](docs/04-advanced/headless-and-sdk.md)
 - [GitHub Actions](docs/04-advanced/github-actions.md)
