@@ -61,6 +61,24 @@ six real, ready-to-install skills in [`skills/`](../../skills/) — diagram and 
 generation, production frontend design, video-to-website, and a skill-builder
 meta-skill that interviews you to build new ones.
 
+The frontmatter fields above (`name`, `description`) are the two you'll always set.
+There are several more — `disable-model-invocation`, `allowed-tools`,
+`argument-hint`, `model`, per-skill `hooks` — for finer control over how and when a
+skill can be invoked. Full field-by-field reference:
+[`skills/skill-builder/reference.md`](../../skills/skill-builder/reference.md).
+
+## Debugging a skill that isn't working well
+
+| Symptom | Fix |
+|---|---|
+| Does the steps in the wrong order, or skips some | Edit the step-by-step instructions in `SKILL.md` directly |
+| Missing tone, style, or business context | Add a reference file and point to it from `SKILL.md` |
+| Same mistake happens repeatedly | Add an explicit rule to `SKILL.md` — don't just fix it once and hope |
+| Keeps re-searching for the same info, or struggles with a tool/MCP | Give it a reference doc for that tool instead of relying on it to rediscover the same thing every run |
+| Works, but the output quality plateaus below what you want | No shortcut — run it repeatedly and keep refining based on what's actually wrong each time |
+| Skill doesn't trigger when you expect it to | Check the `description` in the frontmatter — it's probably not specific enough about *when* to use it |
+| Skill triggers too often / on requests it shouldn't handle | Set `disable-model-invocation: true` so it's only reachable by explicit `/skill-name` invocation, not automatic matching |
+
 ## Why skills are cheap: progressive loading
 
 Skills are evaluated in three levels of progressive context loading, which is why
