@@ -33,6 +33,28 @@ leans on this heavily (it explicitly tells users "you don't need to configure th
 | Personal (all projects) | `~/.claude/CLAUDE.md` and related memory files | Just you |
 | Project | `.claude/memory/` or equivalent within the repo | Team, if committed |
 
+### What a real memory folder looks like
+
+Auto-memory isn't one growing file — it's **one fact per file**, each named for what
+it holds: `feedback-linkedin-tone.md`, `reference-corporate-structure.md`,
+`project-status-launch.md`. A heavily-used setup can accumulate dozens of these (70+
+is common after a few months). Each file is small and structured:
+
+```markdown
+---
+description: Preference correction about LinkedIn post tone
+metadata: feedback
+---
+
+What: Avoid overly formal/corporate phrasing in LinkedIn posts.
+Why: Corrected after a draft came back sounding like a press release.
+How to apply: Default to a conversational register; short sentences.
+```
+
+One fact per file keeps each memory independently editable and skimmable, and lets
+Claude load only the relevant ones instead of re-reading one giant accumulating
+document every session.
+
 ## Agent memory (a different, narrower thing)
 
 Subagents can get their *own* persistent memory directory, separate from your main

@@ -30,6 +30,19 @@ Once authenticated, Claude can chain Workspace operations in plain bash. Two wor
 
 **Inbox zero pass.** Ask Claude to triage your inbox: it reads the unread emails, scores each one's priority against your business context (from your CLAUDE.md or context files), and marks the low-priority ones as read — leaving only what actually needs you.
 
+## Why not just use the desktop app's one-click connectors?
+
+The Claude desktop app has built-in **Connectors** (Browse → Gmail, Notion, Figma,
+etc.) that OAuth you into a tool in a couple of clicks — no API key handling at all.
+They're genuinely easier to set up. The tradeoff: a connector ties that
+authentication to *that specific app*. Switch harnesses — desktop app to VS Code,
+Claude Code to a different coding agent entirely — and every connector has to be
+re-authenticated from scratch. Manual setup (API keys in `.env`, a CLI wrapper,
+instructions in `CLAUDE.md` or a skill) is more work up front, but it's just files —
+any agent that can read a folder can pick it up, so you're not locked into one
+harness. Worth the extra setup time once you're relying on more than a couple of
+integrations.
+
 ## Pattern to reuse
 
 This is the general "CLI beats MCP" pattern, worth applying beyond Google:
