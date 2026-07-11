@@ -179,6 +179,13 @@ Claude will:
 
 If it's laggy: *"Make it load significantly faster."* Claude will switch to frame preloading automatically.
 
+**Deployment gotcha:** the extracted frame images can end up excluded from the
+GitHub push (e.g. via `.gitignore` or a large-folder exclusion) even though
+everything works fine on localhost — the animation silently disappears once
+deployed because the frames simply aren't there. If the scroll animation works
+locally but is missing on the live site, check first whether the frames folder
+actually made it into the repo.
+
 If the gradient looks wrong: *"The gradient at the top and bottom isn't strong enough — there's a color difference between sections. Increase the gradient strength."*
 
 ---
