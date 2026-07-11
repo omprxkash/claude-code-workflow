@@ -36,6 +36,35 @@ Body: instructions the agent sees when spawned.
 
 Drop the file in `.claude/agents/` (project-level) or `~/.claude/agents/` (global).
 
+### Building one with `/agents` instead of by hand
+
+Run `/agents` (terminal-only — not available in the VS Code panel, but you can open
+a terminal inside VS Code to use it) → **Create new agent** → **Generate with
+Claude**, then just describe in plain language what the agent should do and when.
+Claude reads your project for context (business, existing files, conventions) and
+drafts the frontmatter and system prompt for you — you then pick which tools it
+gets, which model, and optionally a terminal display color (useful for telling
+agents apart at a glance when several run in parallel). You can still hand-edit the
+resulting file afterward.
+
+### Three built-in subagents, always available
+
+Claude Code ships with three native subagents you don't have to define — you'll see
+them invoked automatically:
+
+| Agent | Model | Tools | Used for |
+|---|---|---|---|
+| `explore` | Haiku (fixed) | Read-only | Fast codebase search/analysis |
+| `planning` | Inherits parent's model | Read-only | Research during plan mode |
+| `general` | Inherits parent's model | All tools | Multi-step tasks needing broader access |
+
+### Watching and controlling a running subagent
+
+In the terminal, `Ctrl-O` expands a running subagent to show its full
+thinking/output instead of just the summary line, and `Ctrl-B` backgrounds it — the
+main session stays interactive while the subagent keeps working, instead of
+blocking until it returns.
+
 ## The four real agents
 
 These are working definitions. Templates in [`templates/agents/`](../../templates/agents/).
